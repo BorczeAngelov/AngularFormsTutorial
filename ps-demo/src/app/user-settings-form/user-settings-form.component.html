@@ -2,16 +2,15 @@
     <h2>User Settings</h2>
 
     <form #form2="ngForm">
-        
+
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" placeholder="Name"
-            ngModel>
+            <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name">
         </div>
 
         <div class="form-check form-group">
             <input class="form-check-input" type="checkbox" value="" id="emailOffers" name="emailOffers"
-            ngModel>
+                [(ngModel)]="userSettings.emailOffers">
             <label class="form-check-label" for="emailOffers">
                 Email Special Offers
             </label>
@@ -19,33 +18,39 @@
 
         <div>
             <div class="form-check" ngModel>
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                    checked>
+                <input class="form-check-input" type="radio" name="exampleRadios" id="lightInterface" value="light"
+                    [(ngModel)]="userSettings.interfaceStyle">
                 <label class="form-check-label" for="exampleRadios1">
-                    Default radio
+                    Light
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="darkInterface" value="dark"
+                    [(ngModel)]="userSettings.interfaceStyle">
                 <label class="form-check-label" for="exampleRadios2">
-                    Second default radio
+                    Dark
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"
-                    disabled>
+                <input class="form-check-input" type="radio" name="exampleRadios" id="mediumInterface" value="medium"
+                    [(ngModel)]="userSettings.interfaceStyle">
                 <label class="form-check-label" for="exampleRadios3">
-                    Disabled radio
+                    Medium
                 </label>
             </div>
         </div>
 
-        <select class="form-select" aria-label="Default select example"
-        name="subscriptionType" ngModel>
-            <option >Month</option>
-            <option >Two</option>
-            <option >Three</option>
+        <select class="form-select" aria-label="Default select example" name="subscriptionType"
+            [(ngModel)]="userSettings.subscriptionType">
+            <option>Month</option>
+            <option>Annual</option>
+            <option>Lifetime</option>
         </select>
+
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" class="form-control" rows="3" [(ngModel)]="userSettings.notes"></textarea>
+        </div>
 
         <button class="btn btn-primary">Send</button>
     </form>
@@ -54,3 +59,4 @@
 <h3>
     {{ form2.value | json }}
 </h3>
+{{ userSettings | json }}
