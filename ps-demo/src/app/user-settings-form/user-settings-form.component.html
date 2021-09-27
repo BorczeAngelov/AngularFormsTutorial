@@ -1,6 +1,8 @@
 <div class="container">
     <h2>User Settings</h2>
-    <form>
+
+    <form #form2="ngForm">
+        
         <div class="form-group">
             <label for="name">Name</label>
             <input id="name" name="name" class="form-control" placeholder="Name">
@@ -54,10 +56,12 @@
         <div class="form-group">
             <p>Date</p>
 
-            <input type="date" />
+            <input type="date" /> 
 
         </div>
 
         <button class="btn btn-primary">Send</button>
     </form>
 </div>
+
+{{ form2 | json }}
