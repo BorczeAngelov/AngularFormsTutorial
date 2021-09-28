@@ -6,8 +6,7 @@
         <div class="form-group">
             <label for="name">Name</label>
             <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name"
-                required #nameField="ngModel"
-                (blur)="onBlur(nameField)"
+                required #nameField="ngModel" (blur)="onBlur(nameField)"
                 [class.field-error]="form.submitted && nameField.invalid">
 
             <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger">
@@ -23,29 +22,7 @@
             </label>
         </div>
 
-        <div>
-            <div class="form-check" ngModel>
-                <input class="form-check-input" type="radio" name="exampleRadios" id="lightInterface" value="light"
-                    [(ngModel)]="userSettings.interfaceStyle">
-                <label class="form-check-label" for="exampleRadios1">
-                    Light
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="darkInterface" value="dark"
-                    [(ngModel)]="userSettings.interfaceStyle">
-                <label class="form-check-label" for="exampleRadios2">
-                    Dark
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="mediumInterface" value="medium"
-                    [(ngModel)]="userSettings.interfaceStyle">
-                <label class="form-check-label" for="exampleRadios3">
-                    Medium
-                </label>
-            </div>
-        </div>
+
 
         <select class="form-select" aria-label="Default select example" name="subscriptionType"
             [(ngModel)]="userSettings.subscriptionType">
@@ -59,7 +36,7 @@
             <textarea id="notes" name="notes" class="form-control" rows="3" [(ngModel)]="userSettings.notes"></textarea>
         </div>
 
-        <button class="btn btn-primary">Send</button>
+        <button class="btn btn-primary" (click)="onSubmit(form)">Send</button>
     </form>
 </div>
 
