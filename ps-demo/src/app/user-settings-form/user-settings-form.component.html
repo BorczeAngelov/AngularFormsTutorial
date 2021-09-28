@@ -6,7 +6,10 @@
         <div class="form-group">
             <label for="name">Name</label>
             <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="userSettings.name"
-            required>
+                required #nameField="ngModel">
+
+            <div [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger">
+                Enter a name bitte</div>
         </div>
 
         <div class="form-check form-group">
