@@ -14,6 +14,12 @@
             </div>
         </div>
 
+        <button type="button" class="btn btn-primary" [(ngModel)]="singleModel" btnCheckbox name="singleModel"
+            btnCheckboxTrue="On" btnCheckboxFalse="Off">
+            {{singleModel}}
+        </button>
+
+
         <div class="form-check form-group">
             <input class="form-check-input" type="checkbox" value="" id="emailOffers" name="emailOffers"
                 [(ngModel)]="userSettings.emailOffers">
